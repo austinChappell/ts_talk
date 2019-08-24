@@ -4,22 +4,22 @@ export interface TeamsResponse {
 }
 
 export interface Team {
-  id: number;
-  name: string;
-  link: string;
-  venue: Venue;
   abbreviation: string;
-  teamName: string;
-  locationName: string;
-  firstYearOfPlay: string;
-  division: Division;
-  conference: Conference;
-  franchise: Franchise;
-  shortName: string;
-  officialSiteUrl: string;
-  franchiseId: number;
   active: boolean;
+  conference: Conference;
+  division: Division;
+  firstYearOfPlay: string;
+  franchise: Franchise;
+  franchiseId: number;
+  id: number;
+  link: string;
+  locationName: string;
+  name: string;
+  officialSiteUrl: string;
+  shortName: string;
+  teamName: string;
   teamStats?: TeamStat[];
+  venue: Venue;
 }
 
 export interface Conference {
@@ -31,11 +31,11 @@ export interface Conference {
 export type ConferenceName = "Eastern" | "Western";
 
 export interface Division {
+  abbreviation: string;
   id: number;
+  link: string;
   name: DivisionName;
   nameShort: DivisionNameShort;
-  link: string;
-  abbreviation: string;
 }
 
 export type DivisionName =
@@ -48,16 +48,16 @@ export type DivisionNameShort = 'ATL' | 'CEN' | 'Metro' | 'PAC';
 
 export interface Franchise {
   franchiseId: number;
-  teamName: string;
   link: string;
+  teamName: string;
 }
 
 export interface Venue {
-  name: string;
-  link: string;
   city: string;
-  timeZone: TimeZone;
   id?: number;
+  link: string;
+  name: string;
+  timeZone: TimeZone;
 }
 
 export interface TimeZone {
@@ -74,8 +74,8 @@ export type Tz =
   "PDT";
 
 export interface TeamStat {
-  type: Type;
   splits: Split[];
+  type: Type;
 }
 
 export interface Split {
@@ -84,43 +84,43 @@ export interface Split {
 }
 
 export interface Stat {
+  evGGARatio: number | string;
+  faceOffWinPercentage: string;
+  faceOffsLost: number | string;
+  faceOffsTaken: number | string;
+  faceOffsWon: number | string;
   gamesPlayed?: number;
-  wins: number | string;
+  goalsAgainstPerGame: number | string;
+  goalsPerGame: number | string;
   losses: number | string;
   ot: number | string;
-  pts: number | string;
-  ptPctg: string;
-  goalsPerGame: number | string;
-  goalsAgainstPerGame: number | string;
-  evGGARatio: number | string;
-  powerPlayPercentage: string;
+  penaltyKillOpportunities?: string;
+  penaltyKillPercentage: string;
   powerPlayGoals: number | string;
   powerPlayGoalsAgainst: number | string;
   powerPlayOpportunities: number | string;
-  penaltyKillPercentage: string;
-  shotsPerGame: number | string;
+  powerPlayPercentage: string;
+  ptPctg: string;
+  pts: number | string;
+  savePctRank?: string;
+  savePctg?: number;
+  shootingPctRank?: string;
+  shootingPctg?: number;
   shotsAllowed: number | string;
-  winScoreFirst: number | string;
-  winOppScoreFirst: number | string;
+  shotsPerGame: number | string;
   winLeadFirstPer: number | string;
   winLeadSecondPer: number | string;
+  winOppScoreFirst: number | string;
   winOutshootOpp: number | string;
   winOutshotByOpp: number | string;
-  faceOffsTaken: number | string;
-  faceOffsWon: number | string;
-  faceOffsLost: number | string;
-  faceOffWinPercentage: string;
-  shootingPctg?: number;
-  savePctg?: number;
-  penaltyKillOpportunities?: string;
-  savePctRank?: string;
-  shootingPctRank?: string;
+  winScoreFirst: number | string;
+  wins: number | string;
 }
 
 export interface AbbrevTeam {
   id: number;
-  name: string;
   link: string;
+  name: string;
 }
 
 export interface Type {
