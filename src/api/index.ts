@@ -1,3 +1,6 @@
+// Documentation for api found here:
+// https://gitlab.com/dword4/nhlapi/blob/master/stats-api.md
+
 import axios, { AxiosResponse } from 'axios';
 
 type GetRequest = (endpoint: string) => Promise<AxiosResponse<any>>;
