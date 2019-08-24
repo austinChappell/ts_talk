@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { Team } from './api/types/teams';
+import { getTeams } from './api/teams';
 
 const App: React.FC = () => {
+  const [teams, setTeams] = useState<Team[]>([]);
+
+  async function fetchTeams() {
+    try {
+      const response = await getTeams();
+      setTeams(response.data.teams);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchTeams();
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Teams</h2>
+
+      <ul>
+        {teams.map(team => (
+          <li key={team.id}>
+            {team.teamName}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
