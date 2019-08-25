@@ -87,6 +87,7 @@ export interface Split {
 }
 
 export interface Stat {
+  [key: string]: any;
   evGGARatio: number | string;
   faceOffWinPercentage: string;
   faceOffsLost: number | string;
@@ -130,7 +131,9 @@ export interface Type {
   displayName: string;
 }
 
-export type TeamRoster = RosterElement[];
+export interface TeamRoster {
+  roster: RosterElement[];
+}
 
 export interface RosterElement {
   person: Person;

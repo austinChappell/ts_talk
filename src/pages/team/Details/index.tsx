@@ -66,16 +66,14 @@ const Details: React.FC<Props> = (props) => {
     }
   }, [activeTabId, roster, stats, props.teamId, setRoster, setStats]);
 
-  console.log({ roster, stats })
-
   return (
     <div>
       <Tabs
         activeTabId={activeTabId}
         onSelectTab={setActiveTabId}
         tabs={[
-          { content: <Roster />, id: 'roster', label: 'Roster' },
-          { content: <Stats />, id: 'stats', label: 'Stats' },
+          { content: <Roster teamRoster={roster} />, id: 'roster', label: 'Roster' },
+          { content: <Stats teamStats={stats} />, id: 'stats', label: 'Stats' },
         ]}
       />
     </div>

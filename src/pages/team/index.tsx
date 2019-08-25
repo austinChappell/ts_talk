@@ -37,7 +37,7 @@ const TeamPage: React.FC<RouteComponentProps<RouteProps>> = (props) => {
 
   return (
     <Page>
-      <h2>{team.teamName}</h2>
+      <h2>{team.name}</h2>
 
       <Details teamId={teamId} />
     </Page>
