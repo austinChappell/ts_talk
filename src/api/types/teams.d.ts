@@ -16,9 +16,10 @@ export interface Team {
   locationName: string;
   name: string;
   officialSiteUrl: string;
+  roster?: TeamRoster;
   shortName: string;
   teamName: string;
-  teamStats?: TeamStat[];
+  teamStats?: TeamStats;
   venue: Venue;
 }
 
@@ -78,6 +79,8 @@ export interface TeamStat {
   type: Type;
 }
 
+export type TeamStats = TeamStat[];
+
 export interface Split {
   stat: Stat;
   team: AbbrevTeam;
@@ -126,3 +129,29 @@ export interface AbbrevTeam {
 export interface Type {
   displayName: string;
 }
+
+export type TeamRoster = RosterElement[];
+
+export interface RosterElement {
+  person: Person;
+  jerseyNumber: string;
+  position: Position;
+}
+
+export interface Person {
+  id: number;
+  fullName: string;
+  link: string;
+}
+
+export interface Position {
+  code: string;
+  name: string;
+  type: PositionType;
+  abbreviation: string;
+}
+
+export type PositionType =
+  'Defenseman' |
+  'Forward' |
+  'Goalie';

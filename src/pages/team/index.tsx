@@ -14,6 +14,7 @@ interface RouteProps {
 
 const TeamPage: React.FC<RouteComponentProps<RouteProps>> = (props) => {
   const [team, setTeam] = useState<Team | null>(null);
+  const teamId = Number(props.match.params.id);
 
   async function fetchTeam(id: number) {
     try {
@@ -25,8 +26,8 @@ const TeamPage: React.FC<RouteComponentProps<RouteProps>> = (props) => {
   }
 
   useEffect(() => {
-    fetchTeam(Number(props.match.params.id));
-  }, [])
+    fetchTeam(teamId);
+  }, [teamId])
 
   if (!team) {
     return null;
@@ -38,7 +39,7 @@ const TeamPage: React.FC<RouteComponentProps<RouteProps>> = (props) => {
     <Page>
       <h2>{team.teamName}</h2>
 
-      <Details />
+      <Details teamId={teamId} />
     </Page>
   );
 }
