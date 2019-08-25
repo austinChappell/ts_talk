@@ -11,15 +11,25 @@ interface Props {
 }
 
 const CardLink = styled(Link)({
+  alignItems: 'center',
   backgroundColor: colors.common.white,
   color: colors.grays.dark,
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
+  height: 120,
+  justifyContent: 'center',
   margin: 8,
+  padding: 10,
   textDecoration: 'none',
+  width: 140,
 
   '&:visited': {
     color: colors.grays.dark,
-  }
+  },
+
+  '& h4': {
+    marginBottom: 8,
+  },
 });
 
 const TeamCard: React.FC<Props> = ({ team }) => {

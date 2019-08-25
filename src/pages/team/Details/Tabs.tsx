@@ -25,6 +25,7 @@ const List = styled.ul({
 const ListItem = styled.li<ListItemProps>((props) => ({
   borderBottom: props.active ? '1px solid red' : 'none',
   cursor: 'pointer',
+  padding: 8,
 }));
 
 const Tabs: React.FC<Props> = (props) => {

@@ -7,6 +7,7 @@ import Details from './Details';
 import { Team } from '../../api/types/teams';
 import { getTeam } from '../../api/teams';
 import Page from '../../components/layout/Page';
+import TeamLogo from '../../components/shared/TeamLogo';
 
 interface RouteProps {
   id: string;
@@ -33,11 +34,14 @@ const TeamPage: React.FC<RouteComponentProps<RouteProps>> = (props) => {
     return null;
   }
 
-  console.log({ team })
-
   return (
     <Page>
       <h2>{team.name}</h2>
+
+      <TeamLogo
+        alt={team.teamName}
+        teamId={team.id}
+      />
 
       <Details teamId={teamId} />
     </Page>

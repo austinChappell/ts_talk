@@ -4,8 +4,9 @@ import { colors } from '../../constants';
 
 const Main = styled.main({
   backgroundColor: colors.grays.light,
-  minHeight: 'calc(100vh - 60px)',
-  paddingTop: 60,
+  minHeight: '100vh',
+  paddingBottom: 60,
+  paddingTop: 100,
 });
 
 const Page: React.FC = (props) => {
