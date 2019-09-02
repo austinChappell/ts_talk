@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Tabs, { TabId } from './Tabs';
+import Tabs from '../../../components/shared/Tabs';
 import Roster from './Roster';
 import Stats from './Stats';
 import { getTeam } from '../../../api/teams';
@@ -60,7 +60,7 @@ async function fetchStats(
 const Details: React.FC<Props> = (props) => {
   const [stats, setStats] = useState<TeamStats | null>(null);
   const [roster, setRoster] = useState<TeamRoster | null>(null);
-  const [activeTabId, setActiveTabId] = useState<TabId>('roster');
+  const [activeTabId, setActiveTabId] = useState('roster');
 
   useEffect(() => {
     switch (activeTabId) {

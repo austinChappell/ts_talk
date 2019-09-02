@@ -4,6 +4,7 @@ import TeamsPage from './pages/teams';
 import HomePage from './pages/home';
 import Nav from './components/layout/Nav';
 import TeamPage from './pages/team';
+import PersonPage from './pages/person';
 
 const Routes: React.FC = () => {
   return (
@@ -22,6 +23,10 @@ const Routes: React.FC = () => {
         <Route
           component={TeamsPage}
           path="/teams"
+        />
+        <Route
+          component={PersonPage}
+          path="/people/:id"
         />
       </Switch>
     </Router>

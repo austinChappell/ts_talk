@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 
 interface Tab {
   content: React.ReactElement;
-  id: TabId;
+  id: string;
   label: string;
 }
 
 interface Props {
   activeTabId: string;
-  onSelectTab: React.Dispatch<React.SetStateAction<TabId>>;
+  onSelectTab: React.Dispatch<React.SetStateAction<string>>;
   tabs: Tab[];
 }
 
@@ -17,19 +17,19 @@ interface ListItemProps {
   active: boolean;
 }
 
-export type TabId = 'roster' | 'stats';
-
 const List = styled.ul({
   display: 'flex',
+  justifyContent: 'center',
 });
 const ListItem = styled.li<ListItemProps>((props) => ({
   borderBottom: props.active ? '1px solid red' : 'none',
   cursor: 'pointer',
+  fontWeight: props.active ? 700 : 500,
   padding: 8,
 }));
 
 const Tabs: React.FC<Props> = (props) => {
-  const handleClick = useCallback((id: TabId) => () => {
+  const handleClick = useCallback((id: string) => () => {
     props.onSelectTab(id);
   }, [props])
 

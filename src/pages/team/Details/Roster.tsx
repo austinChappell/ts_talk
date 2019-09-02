@@ -1,4 +1,8 @@
+// External Dependencies
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// Internal Dependencies
 import { TeamRoster } from '../../../api/types';
 import Table from '../../../components/shared/Table';
 import TableHead from '../../../components/shared/TableHead';
@@ -33,7 +37,9 @@ const Roster: React.FC<Props> = (props) => {
         {props.teamRoster.roster.map(player => (
           <tr key={player.person.id}>
             <Cell>
-              {player.person.fullName}
+              <Link to={`/people/${player.person.id}`}>
+                {player.person.fullName}
+              </Link>
             </Cell>
             <Cell>
               {player.jerseyNumber}
