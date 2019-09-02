@@ -8,17 +8,10 @@ import {
   TeamRoster,
   TeamStats,
 } from '../../../api/types';
-import styled from '@emotion/styled';
 
 interface Props {
   teamId: number;
 }
-
-const Wrapper = styled.div({
-  alignItems: 'center',
-  display: 'flex',
-  flexDirection: 'column',
-})
 
 async function fetchRoster(
   data: TeamRoster | null,
@@ -74,16 +67,14 @@ const Details: React.FC<Props> = (props) => {
   }, [activeTabId, roster, stats, props.teamId, setRoster, setStats]);
 
   return (
-    <Wrapper>
-      <Tabs
-        activeTabId={activeTabId}
-        onSelectTab={setActiveTabId}
-        tabs={[
-          { content: <Roster teamRoster={roster} />, id: 'roster', label: 'Roster' },
-          { content: <Stats teamStats={stats} />, id: 'stats', label: 'Stats' },
-        ]}
-      />
-    </Wrapper>
+    <Tabs
+      activeTabId={activeTabId}
+      onSelectTab={setActiveTabId}
+      tabs={[
+        { content: <Roster teamRoster={roster} />, id: 'roster', label: 'Roster' },
+        { content: <Stats teamStats={stats} />, id: 'stats', label: 'Stats' },
+      ]}
+    />
   )
 }
 
