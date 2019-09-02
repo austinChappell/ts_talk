@@ -44,6 +44,11 @@ const PersonStats: React.FC<Props> = (props) => {
   const [singleSeasonStatsLoading, setSingleSeasonStatsLoading] = useState(true);
   const [regularSeasonRarnkingStatsLoading, setRegularSeasonRankingStatsLoading] = useState(true);
 
+  // async function getRegSeasonStats() {
+  //   const response = await getPersonStatsSingleSeason(props.personId, { season: 20182019 });
+  //   console.log(response.data.stats[0].splits[0].stat)
+  // }
+
   useEffect(() => {
     switch (activeTabId) {
       case 'singleSeason':
