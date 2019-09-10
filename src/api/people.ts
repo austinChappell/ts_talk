@@ -1,6 +1,6 @@
 import { getRequest } from '.';
 import { AxiosResponse } from 'axios';
-import { PersonResponse, StatsResponse, SingleSeasonStatsSplit, HomeAwayStatsSplit, WinLossStatsSplit, ByMonthStatsSplit, ByDayOfWeekStatsSplit, VsDivisionStatsSplit, VsConferenceStatsSplit, VsTeamStatsSplit, GameLogStatsSplit, RegularSeasonRankingStatsSplit, GoalsByGameSituationStatsSplit } from './types/people';
+import { PersonResponse, StatsResponse, SingleSeasonStatsSplit, HomeAwayStatsSplit, WinLossStatsSplit, ByMonthStatsSplit, ByDayOfWeekStatsSplit, VsDivisionStatsSplit, VsConferenceStatsSplit, VsTeamStatsSplit, GameLogStatsSplit, RegularSeasonRankingStatsSplit, GoalsByGameSituationStatsSplit } from './types';
 
 // Local Typings
 export type GetPersonWithStats<Res> = (id: number, options: StatsOptions) =>  
